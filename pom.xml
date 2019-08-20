@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.sritejakv</groupId>
+    <groupId>com.github.gcflames5</groupId>
     <artifactId>splitwise</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Library to access splitwise in Java programming language</description>
     <url>https://github.com/sritejakv/splitwise-java</url>
@@ -48,33 +48,6 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -151,6 +124,12 @@
             <email>sriteja.ku@gmail.com</email>
             <organization>com.github.sritejakv</organization>
             <organizationUrl>https://github.com/sritejakv/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Nick Sarkis</name>
+            <email>gcflames5@gmail.com</email>
+            <organization>com.github.gcflames5</organization>
+            <organizationUrl>https://github.com/gcflames5/</organizationUrl>
         </developer>
     </developers>
 </project>

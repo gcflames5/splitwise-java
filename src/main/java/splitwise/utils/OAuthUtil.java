@@ -1,4 +1,4 @@
-package utils;
+package splitwise.utils;
 
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.builder.api.DefaultApi10a;
@@ -106,7 +106,12 @@ public class OAuthUtil {
         if (data.length > 0 && data[0] instanceof Map){
             Map<String, String> details = (Map<String, String>) data[0];
             for (Map.Entry<String, String> entry: details.entrySet()){
-                request.addBodyParameter(entry.getKey(), entry.getValue());
+                if (httpMethod == Verb.POST) {
+                    request.addBodyParameter(entry.getKey(), entry.getValue());
+                } else {
+                    request.addParameter(entry.getKey(), entry.getValue());
+
+                }
             }
         }
         this.service.signRequest(this.accessToken, request);

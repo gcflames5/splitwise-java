@@ -1,4 +1,4 @@
-package constants;
+package splitwise.constants;
 
 public class MockResponses {
 

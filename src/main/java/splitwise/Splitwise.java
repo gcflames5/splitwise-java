@@ -1,11 +1,13 @@
+package splitwise;
+
 import com.github.scribejava.core.model.OAuth1AccessToken;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Token;
 import com.github.scribejava.core.model.Verb;
-import constants.Strings;
-import constants.URL;
-import utils.OAuthUtil;
-import utils.Splitwise10Api;
+import splitwise.constants.Strings;
+import splitwise.constants.URL;
+import splitwise.utils.OAuthUtil;
+import splitwise.utils.Splitwise10Api;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +15,11 @@ import java.util.concurrent.ExecutionException;
 
 
 /**
- * Java SDK for Splitwise. Authentication is done using OAuth1.0
+ * Java SDK for splitwise.Splitwise. Authentication is done using OAuth1.0
  */
 public class Splitwise {
     private String consumerKey, consumerSecret;
-    protected OAuthUtil util;
+    public OAuthUtil util;
 
     /**
      * Constructor.
@@ -71,7 +73,7 @@ public class Splitwise {
 
     /**
      * Returns the JSON string of user based on the userId passed.
-     * @param userId Splitwise id of the user
+     * @param userId splitwise.Splitwise id of the user
      * @return JSON string containing user details
      * @throws Exception
      */
@@ -261,11 +263,22 @@ public class Splitwise {
      * @return JSON string containing user expenses
      * @throws Exception
      */
-    public String getExpenses() throws Exception {
-        Response response = this.util.makeRequest(URL.GET_EXPENSES, Verb.GET);
+    public String getExpenses(int limit) throws Exception {
+        Map<String, String> getParams = new HashMap<>();
+        getParams.put("limit", Integer.toString(limit));
+        Response response = this.util.makeRequest(URL.GET_EXPENSES, Verb.GET, getParams);
         if (response.getCode() == 200)
             return response.getBody();
         return null;
+    }
+
+    /**
+     * Get all expenses for the current user.
+     * @return JSON string containing user expenses
+     * @throws Exception
+     */
+    public String getExpenses() throws Exception {
+        return getExpenses(20);
     }
 
     /**
@@ -343,5 +356,6 @@ public class Splitwise {
                 accessToken.getRawResponse()
         );
         System.out.println("Response \n" + splitwise.getCurrentUser());
+        System.out.println("Get all expenses: " + splitwise.getExpenses(0));
     }
 }

@@ -1,12 +1,12 @@
-package utils;
+package splitwise.utils;
 
 import com.github.scribejava.core.model.OAuth1AccessToken;
 import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth10aService;
-import constants.Strings;
-import constants.URL;
+import splitwise.constants.Strings;
+import splitwise.constants.URL;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

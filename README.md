@@ -1,10 +1,10 @@
 # splitwise-java
-**Java SDK for Splitwise**
+**Java SDK for splitwise.Splitwise**
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.sritejakv/splitwise.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.sritejakv%22%20AND%20a:%22splitwise%22)
 
 ***
-This library contains implementation of Splitwise SDK in Java. Currently the following [splitwise API](http://dev.splitwise.com/#introduction) calls 
+This library contains implementation of splitwise.Splitwise SDK in Java. Currently the following [splitwise API](http://dev.splitwise.com/#introduction) calls 
 are supported,
 
 `get_current_user`
@@ -59,7 +59,7 @@ point of time. Authentication using OAuth2.0 is expected in the future updates.
 
 **Registration**
 ***
-The library expects consumer key and consumer secret of Splitwise and can be fetched after registering
+The library expects consumer key and consumer secret of splitwise.Splitwise and can be fetched after registering
 your application [here](https://secure.splitwise.com/oauth_clients).
 
 **Using the library**
@@ -67,18 +67,18 @@ your application [here](https://secure.splitwise.com/oauth_clients).
 
 **Authorization**
 
-As already mentioned, the library expects consumer key and consumer secret from Splitwise. As splitwise
+As already mentioned, the library expects consumer key and consumer secret from splitwise.Splitwise. As splitwise
 uses OAuth authentication for access, the user should also fetch token verifier from the 
 authorization url. This is done in two steps,
 
 1. Initialize splitwise with consumer key and consumer secret.
 
 ```$xslt
-Splitwise splitwise = new Splitwise("<consumerKey>", "<consumerSecret>");
+splitwise.Splitwise splitwise = new splitwise.Splitwise("<consumerKey>", "<consumerSecret>");
 String authorizationURL = splitwise.getAuthorizationUrl();
 ```
 
-2. Open the authorizationURL in the browser. It is a simple process of logging into Splitwise and
+2. Open the authorizationURL in the browser. It is a simple process of logging into splitwise.Splitwise and
 giving the access. After giving the access, token verifier is shown in the url itself. Set the 
 access token using the verifier.
 
@@ -102,10 +102,10 @@ However, the user must authorize at least once to get the token verifier.
 **Access data from splitwise**
 
 Once the authorization if performed and token details are fetched, they can be used to instantiate
-Splitwise class and set the access token as shown above.
+splitwise.Splitwise class and set the access token as shown above.
 
 ```$xslt
-Splitwise splitwise = new Splitwise("<consumerKey>", "<consumerSecret>");
+splitwise.Splitwise splitwise = new splitwise.Splitwise("<consumerKey>", "<consumerSecret>");
 splitwise.util.setAccessToken(@NotNull <token>, @NotNull <tokenSecret>, <tokenRawResponse>);
 ```
 
@@ -229,7 +229,7 @@ String friendDetails = splitwise.getFriend(userId);
 
 ***Create a friend***
 
-`createFriend(firstName, lastName, email)` can be used to add a friend into Splitwise.
+`createFriend(firstName, lastName, email)` can be used to add a friend into splitwise.Splitwise.
 
 ```$xslt
 String response = splitwise.createFriend("lorem", "ipsum", "hello@world.com");
@@ -237,7 +237,7 @@ String response = splitwise.createFriend("lorem", "ipsum", "hello@world.com");
 
 ***Delete a friend***
 
-`deleteFriend(friendId)` can be used to delete a friend from Splitwise.
+`deleteFriend(friendId)` can be used to delete a friend from splitwise.Splitwise.
 
 ```$xslt
 String friendId = "345";
@@ -293,7 +293,7 @@ String notifications = splitwise.getNotifications();
 
 ***Get Currencies***
 
-`getCurrencies()` can be used to fetch the currencies supported by Splitwise. It returns a
+`getCurrencies()` can be used to fetch the currencies supported by splitwise.Splitwise. It returns a
 JSON string containing all the currencies.
 
 ```$xslt
@@ -302,7 +302,7 @@ String currencies = splitwise.getCurrencies();
 
 ***Get Categories***
 
-`getCategories()` can be used to fetch the categories in Splitwise. It returns a
+`getCategories()` can be used to fetch the categories in splitwise.Splitwise. It returns a
 JSON string containing all the categories.
 
 ```$xslt
@@ -315,7 +315,7 @@ String categories = splitwise.getCategories();
 The library includes test cases for some of the methods. It uses [Mockito](https://site.mockito.org/)
 framework to mock the methods needed in unit test cases.
 
-Test cases for two vital classes `Splitwise` and `OAuthUtl` are included in the library, 
+Test cases for two vital classes `splitwise.Splitwise` and `OAuthUtl` are included in the library, 
 `SplitwiseTest` and `OAuthUtilTest`.
 
 **License**

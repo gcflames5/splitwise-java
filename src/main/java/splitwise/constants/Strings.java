@@ -1,7 +1,7 @@
-package constants;
+package splitwise.constants;
 
 /**
- * String constants used in the library.
+ * String splitwise.constants used in the library.
  */
 public class Strings {
     public static final String SPLITWISE_API_VERSION = "v3.0";

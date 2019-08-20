@@ -1,4 +1,4 @@
-package utils;
+package splitwise.utils;
 
 import com.github.scribejava.core.builder.api.DefaultApi10a;
 
