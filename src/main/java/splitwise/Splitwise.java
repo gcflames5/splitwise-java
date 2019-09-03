@@ -9,8 +9,8 @@ import splitwise.constants.URL;
 import splitwise.utils.OAuthUtil;
 import splitwise.utils.Splitwise10Api;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 
@@ -260,6 +260,29 @@ public class Splitwise {
 
     /**
      * Get all expenses for the current user.
+     * @param limit: specify how many expenses to fetch, 0 = no limit
+     * @param updatedAfter: only fetch transactions updated after this date
+     * @return JSON string containing user expenses
+     * @throws Exception
+     */
+    public String getExpenses(int limit, Date updatedAfter) throws Exception {
+        Map<String, String> getParams = new HashMap<>();
+        getParams.put("limit", Integer.toString(limit));
+
+        SimpleDateFormat format = new SimpleDateFormat(
+                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        getParams.put("updated_after", format.format(updatedAfter));
+        Response response = this.util.makeRequest(URL.GET_EXPENSES, Verb.GET, getParams);
+        if (response.getCode() == 200)
+            return response.getBody();
+        return null;
+    }
+
+    /**
+     * Get all expenses for the current user.
+     * @param limit: specify how many expenses to fetch, 0 = no limit
      * @return JSON string containing user expenses
      * @throws Exception
      */

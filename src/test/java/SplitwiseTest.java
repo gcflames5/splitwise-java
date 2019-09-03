@@ -91,7 +91,7 @@ public class SplitwiseTest {
 
     @Test
     public void getExpenses() {
-    
+
     }
 
     @Test
